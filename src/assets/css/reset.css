@@ -1,0 +1,108 @@
+@charset "utf-8"; /*RESET v3*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, cite, img, sub, sup, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  border: 0;
+  font-family: "Microsoft yahei", Helvetica, Arial, Simsun, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  vertical-align: baseline;
+  font-size: 16px;
+}
+html, body {
+  height: 100%
+}
+
+body {
+  user-select: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+button {
+  outline: none;
+}
+
+ol, ul {
+  margin: 0;
+  padding: 0;
+}
+
+ol, ul, li {
+  list-style: none;
+}
+
+i, em {
+  font-style: normal;
+}
+
+blockquote {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  outline: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+select, option {
+  font-family: inherit;
+}
+
+.noselect {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.clearfix:after {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+.noScrollBar{-ms-overflow-style:none;}
+.noScrollBar::-webkit-scrollBar{display:none;}
+.noScrollBar::-ms-scrollBar{display:none;}
+.noScrollBar:-ms-scrollBar{display:none;}
+.noScrollBar::-o-scrollBar{display:none;}
+.noScrollBar::scrollBar{display:none;}
+.noScrollBar:scrollBar{display:none;}
+
+.font-small{font-size: 12px; }
+.font-medium{font-size: 14px; }
+.font-large{font-size: 16px; }
+
+@media screen and (min-width: 1700px) {
+  .font-small{font-size: 14px; }
+  .font-medium{font-size: 16px; }
+  .font-large{font-size: 18px; }
+}
+
+@media screen and (min-width: 2000px) {
+  .font-small{font-size: 18px; }
+  .font-medium{font-size: 20px; }
+  .font-large{font-size: 22px; }
+}
