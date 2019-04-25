@@ -29,10 +29,10 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### 配置vscode eslint方法，保存时自动修复
-创建版本时候并不需要选择标准版的，可以自己在package.json里面配置
-vscode 下载插件ESlint  Vetur
++ 创建版本时候并不需要选择标准版的，可以自己在package.json里面配置
++ vscode 下载插件ESlint  Vetur
 
-vs code 设置 
++ vs code 设置 
 ```
   "eslint.autoFixOnSave": true,
     "eslint.validate": [
