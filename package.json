@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "core-js": "^2.6.5",
+    "element-ui": "^2.9.1",
+    "qs": "^6.7.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6"
   },
@@ -37,8 +40,14 @@
     ],
     "rules": {
       "no-console": "off",
-      "semi": ["error", "never"],
-      "quotes": ["error", "single"]
+      "semi": [
+        "error",
+        "never"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ]
     },
     "parserOptions": {
       "parser": "babel-eslint"
