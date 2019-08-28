@@ -7,11 +7,24 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: ()=> import('../pages/Index.vue')
+      component: ()=> import('../pages/Index.vue'),
+      meta: {
+        moduleName: 'index'
+      }
     },
     {
-      path: '/other',
-      component: ()=> import('../pages/Other.vue')
+      path: '/clock',
+      component: ()=> import('../pages/Clock.vue'),
+      meta: {
+        moduleName: 'clock'
+      }
+    },
+    {
+      path: '/avatar',
+      component: ()=> import('../pages/Avatar.vue'),
+      meta: {
+        moduleName: 'avatar'
+      }
     }
   ]
 })

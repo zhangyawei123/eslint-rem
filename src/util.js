@@ -123,3 +123,29 @@ export function uniq(arr) {
   }
   return result
 }
+/**
+ * @desc 判断是否是手机号码
+ */
+export function isPhone(tel) {
+  var regx = /^1[34578]\d{9}$/
+  return regx.test(tel)
+}
+/**
+ * @desc 判断是否是邮箱
+ */
+export function isEmail(email) {
+  /* eslint-disable */
+  var regx = /^([a-zA-Z0-9_\-])+@([a-zA-Z0-9_\-])+(\.[a-zA-Z0-9_\-])+$/
+  /* eslint-disable */
+  return regx.test(email)
+}
+/**
+ * @desc 验证是否是身份证
+ */
+export function isCardNo(number) {
+  var regx = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
+  return regx.test(number)
+}
+/**
+ * @desc map函数
+ */

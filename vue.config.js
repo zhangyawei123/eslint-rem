@@ -27,7 +27,7 @@ module.exports = {
     }, // 设置代理
     // before: app => {}
     overlay: {
-      warnings: true,
+      warnings: false, // 警告不会阻塞页面的执行
       errors: true
     }
   }

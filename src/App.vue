@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     <div>
-      <router-link to="/">index</router-link>
-      <router-link to="/other">other</router-link>
+      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+        <router-link tag="el-menu-item" index="index" to="/" exact>主页</router-link>
+        <router-link tag="el-menu-item" index="clock" to="/clock">闹钟</router-link>
+        <router-link tag="el-menu-item" index="avatar" to="/avatar">截图\上传</router-link>
+      </el-menu>
     </div>
     <router-view></router-view>
   </div>
@@ -10,6 +13,34 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  data() {
+    return {
+      activeIndex: 'index'
+    }
+  },
+  methods: {
+    handleSelect(key, keyPath) {
+        console.log(key, keyPath)
+      }
+  },
+  watch: {
+    '$route' (to) {
+      this.activeIndex = to.meta.moduleName
+    }
+  }
 }
 </script>
+<style lang="less">
+  .el-menu {
+    margin-bottom: 20px;
+  }
+  .el-menu--horizontal>.el-menu-item.is-active {
+    border-bottom: 2px solid transparent;
+    color: #909399;
+  }
+  .el-menu--horizontal>.el-menu-item.router-link-exact-active {
+    border-bottom: 2px solid #409EFF;
+    color: #333;
+  }
+</style>
