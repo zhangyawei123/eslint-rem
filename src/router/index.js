@@ -25,6 +25,20 @@ export default new Router({
       meta: {
         moduleName: 'avatar'
       }
+    },
+    {
+      path: '/three',
+      component: ()=> import('../pages/threejs/ThreeDemo.vue'),
+      meta: {
+        moduleName: 'three'
+      }
+    },
+    {
+      path: '/test',
+      component: ()=> import('../pages/test.vue'),
+      meta: {
+        moduleName: 'test'
+      }
     }
   ]
 })

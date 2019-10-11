@@ -1,3 +1,5 @@
+const ThreeExamples = require('import-three-examples')
+
 module.exports = {
   publicPath: './',
 
@@ -9,7 +11,75 @@ module.exports = {
   runtimeCompiler: true,
   // 生产环境是否生成 sourceMap 文件
   productionSourceMap: true,
-
+  // chainWebpack: config => {
+  //   // 配置所有threejs里面案例使用的方法
+  //   ThreeExamples.forEach((v) => {
+  //       if (~v.use.indexOf('imports')) {
+  //           config.module
+  //               .rule(`${v.test}_i`)
+  //               .test(require.resolve(v.test))
+  //               .use(v.use)
+  //               .loader(v.use)
+  //       } else {
+  //           config.module
+  //               .rule(`${v.test}_e`)
+  //               .test(require.resolve(v.test))
+  //               .use(v.use)
+  //               .loader(v.use)
+  //       }
+  //   })
+  // },
+  // 配置所有threejs里面案例使用的方法2
+  configureWebpack: {
+    module: {
+      rules: [
+        {
+          test: require.resolve('three/examples/js/controls/OrbitControls'),
+          use: 'imports-loader?THREE=three'
+        },
+        {
+          test: require.resolve('three/examples/js/loaders/MTLLoader'),
+          use: 'imports-loader?THREE=three'
+        },
+        {
+          test: require.resolve('three/examples/js/loaders/OBJLoader'),
+          use: 'imports-loader?THREE=three'
+        },
+        {
+          test: require.resolve('three/examples/js/objects/Sky'),
+          use: 'imports-loader?THREE=three'
+        },
+        {
+          test: require.resolve('three/examples/js/objects/Water'),
+          use: 'imports-loader?THREE=three'
+        },
+        {
+          test: require.resolve('three/examples/js/controls/OrbitControls'),
+          use: 'exports-loader?THREE.OrbitControls'
+        },
+        {
+          test: require.resolve('three/examples/js/loaders/MTLLoader'),
+          use: 'exports-loader?THREE.MTLLoader'
+        },
+        {
+          test: require.resolve('three/examples/js/loaders/OBJLoader'),
+          use: 'exports-loader?THREE.OBJLoader'
+        },
+        {
+          test: require.resolve('three/examples/js/objects/Sky'),
+          use: 'exports-loader?THREE.Sky'
+        },
+        {
+          test: require.resolve('three/examples/js/objects/Water'),
+          use: 'exports-loader?THREE.Water'
+        },
+        {
+          test: require.resolve('three/examples/js/WebGL'),
+          use: 'exports-loader?WEBGL'
+        }
+      ]
+    }
+  },
   // webpack-dev-server 相关配置
   devServer: {
     host: '0.0.0.0',

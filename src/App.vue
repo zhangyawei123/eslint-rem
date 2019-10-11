@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <div>
-      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
         <router-link tag="el-menu-item" index="index" to="/" exact>主页</router-link>
         <router-link tag="el-menu-item" index="clock" to="/clock">闹钟</router-link>
         <router-link tag="el-menu-item" index="avatar" to="/avatar">截图\上传</router-link>
+        <router-link tag="el-menu-item" index="avatar" to="/three">tree.js</router-link>
+        <router-link tag="el-menu-item" index="test" to="/test">test</router-link>
       </el-menu>
     </div>
     <router-view></router-view>
@@ -18,11 +20,6 @@ export default {
     return {
       activeIndex: 'index'
     }
-  },
-  methods: {
-    handleSelect(key, keyPath) {
-        console.log(key, keyPath)
-      }
   },
   watch: {
     '$route' (to) {
