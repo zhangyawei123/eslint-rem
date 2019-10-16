@@ -3,13 +3,15 @@ import qs from 'qs'
 import { Message, MessageBox, Loading} from 'element-ui'
 import router from '../router'
 
-axios.defaults.baseURL = String(process.env.API_HOST)
-axios.defaults.timeout = 2000
-axios.defaults.withCredentials = true
-axios.defaults.transformRequest = [function (data) {
-  let _data = qs.stringify(data)
-  return _data
-}]
+const instance = axios.create({
+  baseURL: String(process.env.API_HOST),
+  timeout: 2000,
+  withCredentials: true,
+  transformRequest: [function (data) {
+    let _data = qs.stringify(data)
+    return _data
+  }]
+})
 
 // 拦截器loading白名单
 const whiteList = [
@@ -35,7 +37,7 @@ const tryHideLoading = () => {
   }
 }
 
-axios.interceptors.request.use(
+instance.interceptors.request.use(
   config=> {
     if(localStorage.getItem('token')) { // 判断是否存在token，如果存在的话，则每个http header都加上token
       config.headers.token = localStorage.getItem('token')
@@ -53,7 +55,7 @@ axios.interceptors.request.use(
     return Promise.reject(error)
   }
 )
-axios.interceptors.response.use(
+instance.interceptors.response.use(
   res=> {
     if(res.data.code === 403) {
       Message({
@@ -76,4 +78,4 @@ axios.interceptors.response.use(
     console.log(error)
   }
 )
-export default axios
+export default instance

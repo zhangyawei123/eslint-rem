@@ -5,12 +5,12 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Directives from './directives/index'
-import axios from './api/http'
+import instance from './api/http'
 import './assets/css/reset.css'
 import 'nprogress/nprogress.css'
 import './assets/js/rem.js'
 
-Vue.prototype.$http = axios
+Vue.prototype.$http = instance
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(Directives)

@@ -36,7 +36,6 @@
       }
     },
     mounted() {
-      console.log(this.bubbleSort([1, 3,4, 55, 2, 44, 10, 'ss']))
     },
     methods: {
       // 冒泡

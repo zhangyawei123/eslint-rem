@@ -5,12 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .demo {
+      position: relative;
+      height: 300px;
+      width: 300px;
+      margin: 100px auto;
+      background: #0f0;
+    }
+    .demo:after {
+      position: absolute;
+      content: '';
+      top: -5px;
+      bottom: -5px;
+      left: -5px;
+      right: -5px;
+      border: 5px solid #00f;
+      animation: move infinite 2s linear;
+    }
+    @keyframes move {
+      0%, 100% {
+        clip: rect(0,310px,5px,0);
+      }
+      25% {
+        clip: rect(0, 310px,310px,305px);
+      }
+      50% {
+        clip: rect(305px, 310px,310px,0);
+      }
+      75% {
+        clip: rect(0, 5px,310px,0);
+      }
+    }
+  </style>
 </head>
-<body>
-
+<body>  
+  <div class="demo">
+    <span>name</span>: <span>ssss</span>
+  </div>
 <script>
-  import { f } from './demo'
-  f()
 </script>
   </body>
 </html>

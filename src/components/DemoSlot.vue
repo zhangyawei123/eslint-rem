@@ -26,8 +26,12 @@
 </script>
 <style lang="less" scoped>
   .container {
-    width: 400px;
-    height: 300px;
+    width: 750px;
+    height: 300PX;
+    border-bottom: 1px solid #00f;
     background: antiquewhite;
+    > p {
+      font-size: 12px;
+    }
   }
 </style>

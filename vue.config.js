@@ -1,4 +1,4 @@
-const ThreeExamples = require('import-three-examples')
+// const ThreeExamples = require('import-three-examples')
 
 module.exports = {
   publicPath: './',
@@ -11,24 +11,24 @@ module.exports = {
   runtimeCompiler: true,
   // 生产环境是否生成 sourceMap 文件
   productionSourceMap: true,
-  // chainWebpack: config => {
-  //   // 配置所有threejs里面案例使用的方法
-  //   ThreeExamples.forEach((v) => {
-  //       if (~v.use.indexOf('imports')) {
-  //           config.module
-  //               .rule(`${v.test}_i`)
-  //               .test(require.resolve(v.test))
-  //               .use(v.use)
-  //               .loader(v.use)
-  //       } else {
-  //           config.module
-  //               .rule(`${v.test}_e`)
-  //               .test(require.resolve(v.test))
-  //               .use(v.use)
-  //               .loader(v.use)
-  //       }
-  //   })
-  // },
+ /*  chainWebpack: config => {
+    // 配置所有threejs里面案例使用的方法
+    ThreeExamples.forEach((v) => {
+        if (~v.use.indexOf('imports')) {
+            config.module
+                .rule(`${v.test}_i`)
+                .test(require.resolve(v.test))
+                .use(v.use)
+                .loader(v.use)
+        } else {
+            config.module
+                .rule(`${v.test}_e`)
+                .test(require.resolve(v.test))
+                .use(v.use)
+                .loader(v.use)
+        }
+    })
+  }, */
   // 配置所有threejs里面案例使用的方法2
   configureWebpack: {
     module: {
@@ -80,6 +80,19 @@ module.exports = {
       ]
     }
   },
+  // rem配置
+  /* css: {
+      loaderOptions: {
+        css: {},
+        postcss: {
+          plugins: [
+            require('postcss-px2rem')({
+              remUnit: 100
+            })
+          ]
+        }
+      }
+  }, */
   // webpack-dev-server 相关配置
   devServer: {
     host: '0.0.0.0',
