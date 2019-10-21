@@ -1,6 +1,6 @@
 <template>
   <div>
-    
+    test
   </div>
 </template>
 
@@ -14,8 +14,7 @@ export default {
     }
   },
   mounted() {
-    this.$http('./data.json').then(res=> console.log(res.data))
-    // fetch('./data.json').then(res=> console.log(JSON.stringify(res.body)))
+    console.log(this.$router.options.routes)
   }
 }
 </script>

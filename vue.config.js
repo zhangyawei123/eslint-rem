@@ -94,6 +94,7 @@ module.exports = {
       }
   }, */
   // webpack-dev-server 相关配置
+  outputDir: process.env.outputDir, 
   devServer: {
     host: '0.0.0.0',
     port: 8080,

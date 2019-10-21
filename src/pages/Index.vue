@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h1>hello wolrd</h1>
-    <p>下面演示lodash</p>
     <p>{{$store.state.name}}</p>
     <DemoSlot>
       <template #header>
@@ -12,6 +10,13 @@
     <el-button v-copy="copyTxt">复制</el-button>
     <el-button @click="startHH">noprogress start</el-button>
     <el-button @click="endHH">noprogress end</el-button>
+    <el-button @click="animaclass=!animaclass">animate</el-button>
+    <transition
+      name="custom-classes-transition"
+      enter-active-class="animated rotateInDownRight"
+      leave-active-class="animated hinge">
+      <div v-show="animaclass" class="inner">这是animate.css实现的css3动画</div>
+    </transition>
   </div>
 </template>
 
@@ -22,6 +27,7 @@
   export default {
     data() {
       return {
+        animaclass: false,
         url: 'http://www.baidu.com',
         copyTxt: ''
       }
@@ -83,5 +89,13 @@
 </script>
 
 <style lang="scss">
-
+  .inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    background-color: #0f0;
+    color: #ffff;
+  }
 </style>

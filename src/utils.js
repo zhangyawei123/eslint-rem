@@ -146,3 +146,11 @@ export function isCardNo(number) {
   var regx = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
   return regx.test(number)
 }
+
+/**
+ * @param {string} path
+ * @returns {Boolean}
+ */
+export function isExternal(path) {
+  return /^(https?:|mailto:|tel:)/.test(path)
+}

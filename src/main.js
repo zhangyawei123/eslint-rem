@@ -8,7 +8,8 @@ import Directives from './directives/index'
 import instance from './api/http'
 import './assets/css/reset.css'
 import 'nprogress/nprogress.css'
-import './assets/js/rem.js'
+import 'animate.css'
+// import './assets/js/rem.js'
 
 Vue.prototype.$http = instance
 Vue.config.productionTip = false

@@ -6,10 +6,12 @@
     "serve": "vue-cli-service serve",
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "test": "vue-cli-service build --mode test",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@tweenjs/tween.js": "^17.2.0",
+    "animate.css": "^3.7.2",
     "axios": "^0.18.1",
     "core-js": "^2.6.5",
     "element-ui": "^2.9.1",
