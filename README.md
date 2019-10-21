@@ -34,13 +34,31 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 + vs code 设置 
 ```
+  {
+  "editor.fontSize": 14,
+  "eslint.run": "onSave",
   "eslint.autoFixOnSave": true,
-    "eslint.validate": [
-      "javascript",
-      "javascriptreact",
-      {
-        "language": "vue",
-        "autoFix": true
-      }
-    ]
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue-html",
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
+  "emmet.triggerExpansionOnTab": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "window.zoomLevel": 1,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "workbench.startupEditor": "newUntitledFile",
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": true
+  },
+}
 ```
