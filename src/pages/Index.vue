@@ -2,8 +2,8 @@
   <div>
     <p>{{$store.state.name}}</p>
     <DemoSlot>
-      <template #header>
-        <h1>Here might be a page title</h1>
+      <template slot="header">
+        <h1>{{time}}</h1>
       </template>
     </DemoSlot>
     <input v-focus v-model="copyTxt">
@@ -17,19 +17,28 @@
       leave-active-class="animated hinge">
       <div v-show="animaclass" class="inner">这是animate.css实现的css3动画</div>
     </transition>
+    <div class="box" ref="box">
+      <div class="demos" ref="list">
+        <div v-for="n in listNum" class="item" :key="n">{{n}} lebfakfbjasn db </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+  import dayjs from 'dayjs'
+  import 'dayjs/locale/zh-cn' // 按需加载
   import NProgress from 'nprogress'
   import myMixin from '../mixins/test'
   import DemoSlot from '../components/DemoSlot'
   export default {
     data() {
       return {
+        listNum: 9,
         animaclass: false,
         url: 'http://www.baidu.com',
-        copyTxt: ''
+        copyTxt: '',
+        time: ''
       }
     },
     mixins: [myMixin],
@@ -42,8 +51,26 @@
       }
     },
     mounted() {
+      this.time = dayjs().locale('zh-cn').format('MMMM D日 dddd, hh:mm:ss')
+      this.animateScroll()
     },
     methods: {
+      animateScroll() {
+        let elem = this.$refs.list
+        let boxHeight = this.$refs.box.offsetHeight || this.$refs.box.clientHeight
+        let listHeight = elem.offsetHeight || elem.clientHeight
+        let MarginTop = 0
+        let transformHeight = (listHeight / this.listNum) * 3
+        console.log(listHeight)
+        setInterval(() => {
+          if(Math.abs(MarginTop) + boxHeight < (listHeight)) {
+            MarginTop -= transformHeight
+          }else {
+            MarginTop = 0
+          }
+          elem.style.marginTop = MarginTop + 'px'
+        }, 1000)
+      },
       // 冒泡
       bubbleSort(arr) {
         let len = arr.length
@@ -89,6 +116,26 @@
 </script>
 
 <style lang="scss">
+  .box {
+    height: 3.1rem;
+    width: 400px;
+    border: 1px solid #f00;
+    background: blueviolet;
+    overflow: hidden;
+    .demos {
+      width: 100%;
+      background: #409EFF;
+      transition: all .5s;
+      .item {
+        height: 1rem;
+        background: #00ff00;
+        &:nth-child(odd) {
+          background: aqua;
+        }
+      }
+    }
+  }
+
   .inner {
     position: absolute;
     top: 0;

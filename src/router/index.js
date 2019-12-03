@@ -97,6 +97,14 @@ export default new Router({
       ]
     },
     {
+      path: '/test02',
+      component: ()=> import('../pages/test02.vue'),
+      hidden: true,
+      meta: {
+        moduleName: 'test02'
+      }
+    },
+    {
       path: '/login',
       component: ()=> import('../pages/Login.vue'),
       hidden: true,

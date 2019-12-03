@@ -102,7 +102,7 @@ module.exports = {
     hotOnly: true,
     proxy: {
       '/api': {
-        target: 'localhost:3000',
+        target: 'http://yapi.demo.qunar.com/mock/15030/wechat/',
         changeOrigin: true,
         pathRewrite: {
           '^/api': '/api'
