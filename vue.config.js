@@ -78,6 +78,10 @@ module.exports = {
           use: 'exports-loader?WEBGL'
         }
       ]
+    },
+    externals: {
+      'AMap': 'AMap', // 使用高德地图必不可少的配置
+      'Loca': 'Loca' // 使用高德地图可视化组件时必加
     }
   },
   // rem配置
@@ -94,7 +98,7 @@ module.exports = {
       }
   }, */
   // webpack-dev-server 相关配置
-  outputDir: process.env.outputDir, 
+  outputDir: process.env.outputDir,
   devServer: {
     host: '0.0.0.0',
     port: 8080,

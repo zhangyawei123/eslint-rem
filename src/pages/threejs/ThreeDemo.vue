@@ -10,7 +10,6 @@ import * as THREE from 'three'
 import OrbitControls from 'three/examples/js/controls/OrbitControls'
 import MTLLoader from 'three/examples/js/loaders/MTLLoader'
 import OBJLoader from 'three/examples/js/loaders/OBJLoader'
-import {CSS2DRenderer, CSS2DObject} from 'three-css2drender'
 
 
 export default {

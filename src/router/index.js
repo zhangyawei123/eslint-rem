@@ -73,6 +73,20 @@ export default new Router({
       ]
     },
     {
+      path: '/map',
+      component: Layout,
+      children: [
+        {
+          path: '',
+          component: ()=> import('../pages/map.vue'),
+          meta: {
+            icon: 'map-location',
+            title: 'map'
+          }
+        }
+      ]
+    },
+    {
       path: '/test',
       component: Layout,
       children: [
