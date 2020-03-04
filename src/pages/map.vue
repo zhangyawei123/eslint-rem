@@ -10,6 +10,7 @@
         vid="alarmMarker"
       >
         <div class="point-container">
+          {{marker.msg}}
         </div>
       </el-amap-marker>
     </el-amap>
@@ -33,7 +34,11 @@
   .point-container {
     height: 40px;
     width: 40px;
-    background: #f00;
+    text-align: center;
+    line-height: 40px;
+    color: #00ff00;
+    border-radius: 50%;
+    background: #579fff;
   }
 </style>
 
@@ -79,10 +84,9 @@
       drawCircle() {
         this.mouseTool = new AMap.MouseTool(this.map)
         this.mouseTool.circle({
-          strokeColor: "#FF33FF",
+          strokeColor: '#FF33FF',
           strokeOpacity: 1,
           strokeWeight: 6,
-          strokeOpacity: 0.2,
           fillColor: '#1791fc',
           fillOpacity: 0.4,
           strokeStyle: 'solid',
@@ -113,5 +117,5 @@
         })
       },
     }
-  };
+  }
 </script>

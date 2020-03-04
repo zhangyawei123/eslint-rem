@@ -12,86 +12,91 @@
       height: 100%;
     }
   </style>
-  <title>椭圆的绘制和编辑</title>
-  <script src="https://webapi.amap.com/maps?v=1.4.15&key=e5ac6d9d224f5b9d905745166a76028c&plugin=AMap.MouseTool,AMap.Driving"></script>
+  <title>圆的绘制和编辑</title>
+  <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=e5ac6d9d224f5b9d905745166a76028&plugin=AMap.CircleEditor"></script>
   <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+  <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
 </head>
 <body>
 <div id="container"></div>
-<div class="input-card" style="width: 200px;position: absolute; bottom: 0">
-  <h4 style="margin-bottom: 10px; font-weight: 600">利用mouseTool绘制覆盖物</h4>
-  <button class="btn" onclick="drawPolyline()" style="margin-bottom: 5px">绘制线段</button>
-  <button class="btn" onclick="drawPolygon()" style="margin-bottom: 5px">绘制多边形</button>
-  <button class="btn" onclick="drawRectangle()" style="margin-bottom: 5px">绘制矩形</button>
-  <button class="btn" onclick="drawCircle()" style="margin-bottom: 5px">绘制圆形</button>
+<div class="input-card" style="width: 120px">
+<!--  <button class="btn" onclick="circleEditor.open()" style="margin-bottom: 5px">开始编辑</button>-->
+<!--  <button class="btn" onclick="circleEditor.close()">结束编辑</button>-->
 </div>
 <script type="text/javascript">
-  var map = new AMap.Map("container", {
-    center: [116.434381, 39.898515],
-    zoom: 14
-  });
-
-  var mouseTool = new AMap.MouseTool(map)
-
-  function drawPolyline () {
-    mouseTool.polyline({
-      strokeColor: "#3366FF",
-      strokeOpacity: 1,
-      strokeWeight: 6,
-      // 线样式还支持 'dashed'
-      strokeStyle: "solid",
-      // strokeStyle是dashed时有效
-      // strokeDasharray: [10, 5],
-    })
+  // var map = new AMap.Map("container", {
+  //   center: [116.433322, 39.900256],
+  //   zoom: 14
+  // })
+  // let circles = [
+  //   {
+  //     center: [116.433322, 39.900255],
+  //     radius: 1000, //半径
+  //     borderWeight: 3,
+  //     strokeColor: "#FF33FF",
+  //     strokeOpacity: 1,
+  //     strokeWeight: 6,
+  //     strokeOpacity: 0.2,
+  //     fillOpacity: 0.4,
+  //     strokeStyle: 'dashed',
+  //     strokeDasharray: [10, 10],
+  //     // 线样式还支持 'dashed'
+  //     fillColor: '#1791fc',
+  //     zIndex: 50,
+  //   },
+  //   {
+  //     center: [116.443322, 39.900255],
+  //     radius: 1000, //半径
+  //     borderWeight: 3,
+  //     strokeColor: "#FF33FF",
+  //     strokeOpacity: 1,
+  //     strokeWeight: 6,
+  //     strokeOpacity: 0.2,
+  //     fillOpacity: 0.4,
+  //     strokeStyle: 'dashed',
+  //     strokeDasharray: [10, 10],
+  //     // 线样式还支持 'dashed'
+  //     fillColor: '#1791fc',
+  //     zIndex: 50,
+  //   }
+  // ]
+  // let circleEditor = new AMap.CircleEditor(map, new AMap.Circle(circles[0]))
+  // circles.forEach(item=> {
+  //   let circle = new AMap.Circle(item)
+  //   circle.setMap(map)
+  //   circle.on('click', ()=> {
+  //     circleEditor = new AMap.CircleEditor(map, circle)
+  //     circleEditor.close()
+  //     circleEditor.open()
+  //     circleEditor.on('move', function(event) {
+  //       console.log(event)
+  //     })
+  //
+  //     circleEditor.on('adjust', function(event) {
+  //       log.info('触发事件：adjust')
+  //     })
+  //
+  //     circleEditor.on('end', function(event) {
+  //       console.log(event)
+  //     })
+  //   })
+  // })
+  function GetQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+    var context = "";
+    if (r != null)
+      context = r[2];
+    reg = null;
+    r = null;
+    return context == null || context == "" || context == "undefined" ? "" : context;
   }
-
-  function drawPolygon () {
-    mouseTool.polygon({
-      strokeColor: "#FF33FF",
-      strokeOpacity: 1,
-      strokeWeight: 6,
-      strokeOpacity: 0.2,
-      fillColor: '#1791fc',
-      fillOpacity: 0.4,
-      // 线样式还支持 'dashed'
-      strokeStyle: "solid",
-      // strokeStyle是dashed时有效
-      // strokeDasharray: [30,10],
-    })
-  }
-
-  function drawRectangle () {
-    mouseTool.rectangle({
-      strokeColor:'red',
-      strokeOpacity:0.5,
-      strokeWeight: 6,
-      fillColor:'blue',
-      fillOpacity:0.5,
-      // strokeStyle还支持 solid
-      strokeStyle: 'solid',
-      // strokeDasharray: [30,10],
-    })
-  }
-
-  function drawCircle () {
-    mouseTool.circle({
-      strokeColor: "#FF33FF",
-      strokeOpacity: 1,
-      strokeWeight: 6,
-      strokeOpacity: 0.2,
-      fillColor: '#1791fc',
-      fillOpacity: 0.4,
-      strokeStyle: 'solid',
-      // 线样式还支持 'dashed'
-      // strokeDasharray: [30,10],
-    })
-  }
-
-  mouseTool.on('draw', function(event) {
-    // event.obj 为绘制出来的覆盖物对象
-    log.info('覆盖物对象绘制完成')
+  wx.miniProgram.showToast({
+    title: GetQueryString('token'),
+    icon: 'none',
+    duration: 2000
   })
-
 </script>
 </body>
 </html>

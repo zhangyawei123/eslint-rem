@@ -6,17 +6,18 @@
         text-color="#bfcbd9"
         active-text-color="#409EFF"
       >
-        <nav-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
+        <nav-item v-for="route in permission_routes" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu>
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import NavItem from './NavItem'
 export default {
   computed: {
-    routes() {
-      return this.$router.options.routes
-    },
+    ...mapGetters([
+      'permission_routes'
+    ]),
     activeMenu() {
       const route = this.$route
       const { meta, path } = route

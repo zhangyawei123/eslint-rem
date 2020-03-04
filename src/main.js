@@ -9,8 +9,10 @@ import instance from './api/http'
 import './assets/css/reset.css'
 import 'nprogress/nprogress.css'
 import 'animate.css'
+
+import './permission'
 // import './assets/js/rem.js'
-import '@/libs/rem.js'
+// import '@/libs/rem.js'
 import VueAMap from 'vue-amap'
 import ECharts from 'vue-echarts' // 在 webpack 环境下指向 components/ECharts.vue
 // 注册组件后即可使用
@@ -22,6 +24,7 @@ VueAMap.initAMapApiLoader({
   // 默认高德 sdk 版本为 1.4.4
   v: '1.4.15'
 })
+
 
 Vue.prototype.$http = instance
 Vue.config.productionTip = false

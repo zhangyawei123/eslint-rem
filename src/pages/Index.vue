@@ -26,7 +26,6 @@
 </template>
 
 <script>
-  import dayjs from 'dayjs'
   import 'dayjs/locale/zh-cn' // 按需加载
   import NProgress from 'nprogress'
   import myMixin from '../mixins/test'
@@ -51,8 +50,20 @@
       }
     },
     mounted() {
-      this.time = dayjs().locale('zh-cn').format('MMMM D日 dddd, hh:mm:ss')
       this.animateScroll()
+
+
+      function sleep(second, param) {
+          setTimeout(() => {
+            console.log('sss')
+          }, second)
+      }
+
+      async function test(){
+        await sleep(2000)
+        console.log('oo')
+      }
+      test()
     },
     methods: {
       animateScroll() {
